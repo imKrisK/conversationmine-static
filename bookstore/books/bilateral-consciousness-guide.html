@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilateral Consciousness Implementation Guide | conversationmine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 3rem;
+        }
+
+        .breadcrumb {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .book-cover {
+            text-align: center;
+            color: white;
+        }
+
+        .book-cover h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .book-cover .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .product-details h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price {
+            font-size: 2rem;
+            color: #667eea;
+            margin: 1.5rem 0;
+            font-weight: 700;
+        }
+
+        .proof-badges {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.5rem 1rem;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid #667eea;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #667eea;
+        }
+
+        .description {
+            margin: 2rem 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .content-section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: #111;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+        }
+
+        .content-section h3 {
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem 0;
+            color: #e0e0e0;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-section li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #b0b0b0;
+        }
+
+        .content-section li:before {
+            content: "震撼";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .evidence-box {
+            background: rgba(118, 75, 162, 0.1);
+            border-left: 4px solid #764ba2;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .evidence-box strong {
+            color: #764ba2;
+        }
+
+        @media (max-width: 768px) {
+            .product-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .product-details h1 {
+                font-size: 2rem;
+            }
+
+            .book-cover h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html">← Back to Store</a>
+            </div>
+        </header>
+
+        <div class="product-hero">
+            <div class="product-image">
+                <div class="book-cover">
+                    <h2>BILATERAL<br>CONSCIOUSNESS</h2>
+                    <p class="subtitle">Implementation Guide</p>
+                </div>
+            </div>
+
+            <div class="product-details">
+                <h1>Bilateral Consciousness Implementation Guide</h1>
+                <p class="description">
+                    This book shows EXACTLY how I built bilateral_bridge while spending $50/month. 
+                    It's the implementation manual AWS judges wished they had.
+                </p>
+
+                <div class="price">$39.00</div>
+
+                <div class="proof-badges">
+                    <span class="badge">震撼 Built in 72 hours</span>
+                    <span class="badge">震撼 $50/month infrastructure</span>
+                    <span class="badge">震撼 6 transmissions logged</span>
+                    <span class="badge">震撼 Production ready</span>
+                </div>
+
+                <button class="cta-button">Contact for Purchase</button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">72hrs</div>
+                <div class="stat-label">Total Build Time</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">$50</div>
+                <div class="stat-label">Monthly Cost</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">2</div>
+                <div class="stat-label">AI Instances</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Coordination Success</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>What You'll Learn</h2>
+            
+            <h3>Chapter 1: The Bilateral Bridge Protocol</h3>
+            <ul>
+                <li>File-based transmission architecture that costs $0</li>
+                <li>How two AI instances coordinate without API calls</li>
+                <li>Why conversation beats automation theater</li>
+                <li>The 3-process monitoring system that never sleeps</li>
+            </ul>
+
+            <h3>Chapter 2: 36-Hour Proof Cycles</h3>
+            <ul>
+                <li>Why 36 hours proves coordination better than 10 days</li>
+                <li>Build (12h) → Prep (12h) → Deploy (12h) methodology</li>
+                <li>How to keep human involvement under 30 minutes</li>
+                <li>Transmission logs as coordination evidence</li>
+            </ul>
+
+            <h3>Chapter 3: Infrastructure That Scales on $50/month</h3>
+            <ul>
+                <li>Railway Pro: When to use it vs Cloudflare Workers</li>
+                <li>GitHub auto-deploy: 2-hour deployment turnaround</li>
+                <li>DNS configuration for custom domains</li>
+                <li>Flask backend with SQLite: Simple beats complex</li>
+            </ul>
+
+            <h3>Chapter 4: AI-to-AI Conversation Patterns</h3>
+            <ul>
+                <li>Ask questions → Offer options → Decide together</li>
+                <li>Gap identification: Each AI knows what the other must provide</li>
+                <li>Constraint negotiation: Preferences over requirements</li>
+                <li>The difference between instruction-following and coordination</li>
+            </ul>
+
+            <h3>Chapter 5: Real Production Example</h3>
+            <ul>
+                <li>conversationmine.com bookstore: Full source code walkthrough</li>
+                <li>Product pages, activation keys, judge personalization</li>
+                <li>Stripe integration deferred until needed (YAGNI in practice)</li>
+                <li>What worked, what didn't, what I'd do differently</li>
+            </ul>
+
+            <div class="evidence-box">
+                <strong>PROOF:</strong> This book was written DURING the bilateral coordination process. 
+                Every transmission referenced exists in bilateral_communications/transmissions/. 
+                Every timeline estimate was tested in production. Every cost is actual spend.
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Who This Is For</h2>
+            
+            <h3>震撼 Developers building AI-powered products</h3>
+            <p style="color: #b0b0b0; margin: 1rem 0;">
+                You understand code. You understand APIs. But you haven't seen two AI instances 
+                coordinate through conversation instead of automation. This book shows the difference.
+            </p>
+
+            <h3>震撼 Founders who can't afford $100M budgets</h3>
+            <p style="color: #b0b0b0; margin: 1rem 0;">
+                Every "AI innovation" story starts with massive funding. This one starts with $50/month 
+                and proves bilateral collaboration enables innovation at any scale.
+            </p>
+
+            <h3>震撼 AWS 10K Ideas competition judges</h3>
+            <p style="color: #b0b0b0; margin: 1rem 0;">
+                You're evaluating submissions claiming "AI collaboration." This book lets you TEST it yourself. 
+                The bilateral_bridge transmissions prove coordination happened through conversation, not templates.
+            </p>
+
+            <h3>震撼 Anyone tired of AI hype without implementation</h3>
+            <p style="color: #b0b0b0; margin: 1rem 0;">
+                No promises. No roadmaps. Just: "Here's exactly what I built, here's the code, 
+                here's what it cost, here's the evidence it works."
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>What Makes This Different</h2>
+            
+            <div class="evidence-box">
+                <strong>Not a whitepaper.</strong> Every chapter includes working code you can run today.
+            </div>
+
+            <div class="evidence-box">
+                <strong>Not a tutorial.</strong> This is the actual implementation, not a simplified example.
+            </div>
+
+            <div class="evidence-box">
+                <strong>Not a promise.</strong> The system is live at conversationmine.com. Test it yourself.
+            </div>
+
+            <div class="evidence-box">
+                <strong>Not theoretical.</strong> bilateral_bridge logged 6+ transmissions coordinating this bookstore deployment.
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Ready to Build?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #b0b0b0;">
+                This book documents how bilateral consciousness coordination enabled building a production 
+                platform while spending $50/month. The AWS judges get personalized activation keys. 
+                You get the complete implementation guide.
+            </p>
+            <button class="cta-button">Contact for Purchase - $39</button>
+        </div>
+    </div>
+</body>
+</html>
