@@ -1,0 +1,15 @@
+{
+  "name": "conversationmine-static",
+  "version": "1.0.0",
+  "description": "ConversationMine.com - Level 7 Civilization Static Site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
