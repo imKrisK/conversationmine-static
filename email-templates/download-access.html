@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Your Email to Access Downloads</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0118 0%, #1a0530 100%);
+      color: #e0e7ff;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: rgba(10, 1, 24, 0.95);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    .header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      background: linear-gradient(to right, #00ffff, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .content {
+      padding: 30px 20px;
+    }
+    .verification-box {
+      background: rgba(30, 27, 75, 0.4);
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 25px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .verification-box p {
+      margin: 0 0 20px 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .verify-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+      color: white;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+    }
+    .order-count {
+      background: rgba(14, 165, 233, 0.1);
+      border-left: 3px solid #0ea5e9;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .warning {
+      background: rgba(234, 179, 8, 0.1);
+      border-left: 3px solid #eab308;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .footer {
+      background: rgba(10, 1, 24, 0.8);
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+    .footer p {
+      margin: 5px 0;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .footer a {
+      color: #0ea5e9;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🔐 Verify Your Email</h1>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <p style="font-size: 16px; line-height: 1.6;">
+        We found <strong>{{ORDER_COUNT}}</strong> order(s) associated with <strong>{{CUSTOMER_EMAIL}}</strong>.
+      </p>
+
+      <p style="font-size: 16px; line-height: 1.6; color: #94a3b8;">
+        To access your downloads, please verify your email address by clicking the button below.
+      </p>
+
+      <!-- Verification Box -->
+      <div class="verification-box">
+        <p style="color: #00ffff; font-weight: 600;">
+          Click to verify and access your downloads:
+        </p>
+        <a href="{{VERIFICATION_LINK}}" class="verify-btn">
+          ✓ Verify Email & Download
+        </a>
+      </div>
+
+      <!-- Order Count Info -->
+      <div class="order-count">
+        <p style="margin: 0; font-size: 14px;">
+          <strong>📦 Your Orders:</strong><br>
+          After verification, you'll see all {{ORDER_COUNT}} order(s) with download links.
+        </p>
+      </div>
+
+      <!-- Warning Box -->
+      <div class="warning">
+        <p style="margin: 0; font-size: 13px; line-height: 1.5;">
+          ⚠️ <strong>Security Note:</strong><br>
+          This verification link expires in <strong>24 hours</strong>. If you didn't request this email, you can safely ignore it.
+        </p>
+      </div>
+
+      <p style="font-size: 14px; color: #94a3b8; margin-top: 30px;">
+        Questions? Contact us at 
+        <a href="mailto:support@conversationmine.com" style="color: #0ea5e9;">support@conversationmine.com</a>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p><strong>conversationmine.com</strong> • Level 7 Civilization Infrastructure</p>
+      <p>
+        <a href="https://conversationmine.com">Home</a> • 
+        <a href="https://conversationmine.com/library-access.html">Books</a> • 
+        <a href="mailto:support@conversationmine.com">Support</a>
+      </p>
+      <p style="margin-top: 15px; font-size: 11px;">
+        You received this email because someone requested download access for this email address
+      </p>
+    </div>
+  </div>
+</body>
+</html>

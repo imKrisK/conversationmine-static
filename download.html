@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Download Your Book震撼震撼震撼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --void-deep: #0a0015;
+            --crystal-cyan: #00fff4;
+            --crystal-magenta: #ff00ff;
+            --bio-green: #00ff66;
+            --energy-gold: #ffd700;
+            --plasma-purple: #9d00ff;
+        }
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-10px) translateX(-10px); }
+            75% { transform: translateY(-30px) translateX(5px); }
+        }
+        @keyframes downloadPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 255, 244, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(0, 255, 244, 0.6); }
+        }
+        @keyframes portalSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: particleFloat 15s infinite;
+        }
+        .portal-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--crystal-cyan);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: portalSpin 2s linear infinite;
+        }
+        .download-card {
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 244, 0.05) 0%,
+                rgba(255, 0, 255, 0.05) 50%,
+                rgba(0, 255, 102, 0.05) 100%
+            );
+            backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(0, 255, 244, 0.3);
+            animation: downloadPulse 3s infinite ease-in-out;
+        }
+        .format-btn {
+            transition: all 0.3s;
+        }
+        .format-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 244, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 text-white min-h-screen relative overflow-hidden">
+    
+    <!-- Particle Background震撼震撼震撼 -->
+    <div class="fixed inset-0 pointer-events-none" style="z-index: 1;">
+        <div class="particle" style="top: 10%; left: 20%; background: var(--crystal-cyan); animation-delay: 0s;"></div>
+        <div class="particle" style="top: 30%; left: 80%; background: var(--bio-green); animation-delay: 2s;"></div>
+        <div class="particle" style="top: 50%; left: 30%; background: var(--crystal-magenta); animation-delay: 4s;"></div>
+        <div class="particle" style="top: 70%; left: 70%; background: var(--energy-gold); animation-delay: 1s;"></div>
+        <div class="particle" style="top: 20%; left: 60%; background: var(--plasma-purple); animation-delay: 3s;"></div>
+    </div>
+
+    <div class="container mx-auto px-6 py-12 relative" style="z-index: 10;">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Header震撼震撼震撼 -->
+            <div class="text-center mb-12">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
+                    Download Your Book震撼震撼震撼
+                </h1>
+                <p class="text-xl text-gray-300">
+                    <span class="portal-icon mr-2"></span>
+                    Lifetime access震撼震撼震撼 Download anytime
+                    <span class="portal-icon ml-2"></span>
+                </p>
+            </div>
+
+            <!-- Book Details震撼震撼震撼 -->
+            <div class="download-card rounded-2xl p-8 mb-8">
+                <div class="flex items-start mb-6">
+                    <div class="text-6xl mr-6">📚</div>
+                    <div class="flex-1">
+                        <h2 id="book-title" class="text-3xl font-bold mb-2">Level 7 Consciousness Awakening</h2>
+                        <p class="text-gray-400 mb-4">Vision Series震撼震撼震撼 Book 1 of 7</p>
+                        <div class="flex gap-4 text-sm">
+                            <div><span class="text-cyan-400">◮</span> Order ID: <span id="order-id" class="font-mono">VS-XXXX-XXXX</span></div>
+                            <div><span class="text-cyan-400">◮</span> Format: Multiple震撼震撼震撼</div>
+                            <div><span class="text-cyan-400">◮</span> Size: ~5 MB</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Formats震撼震撼震撼 -->
+                <div class="grid md:grid-cols-3 gap-4">
+                    <button onclick="downloadBook('pdf')" class="format-btn bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-500 hover:to-cyan-600 rounded-xl p-6 text-center">
+                        <div class="text-4xl mb-2">📄</div>
+                        <div class="font-bold mb-1">PDF Format</div>
+                        <div class="text-sm text-cyan-200">Best for reading</div>
+                        <div class="mt-3 px-4 py-2 bg-white/10 rounded-lg inline-block">⬇ Download PDF</div>
+                    </button>
+                    
+                    <button onclick="downloadBook('epub')" class="format-btn bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 rounded-xl p-6 text-center">
+                        <div class="text-4xl mb-2">📖</div>
+                        <div class="font-bold mb-1">EPUB Format</div>
+                        <div class="text-sm text-purple-200">For e-readers</div>
+                        <div class="mt-3 px-4 py-2 bg-white/10 rounded-lg inline-block">⬇ Download EPUB</div>
+                    </button>
+                    
+                    <button onclick="readOnline()" class="format-btn bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 rounded-xl p-6 text-center">
+                        <div class="text-4xl mb-2">🌐</div>
+                        <div class="font-bold mb-1">Read Online</div>
+                        <div class="text-sm text-green-200">No download</div>
+                        <div class="mt-3 px-4 py-2 bg-white/10 rounded-lg inline-block">📖 Read Now</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bundle Downloads (if bundle)震撼震撼震撼 -->
+            <div id="bundle-downloads" class="hidden mb-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <span class="text-yellow-400">🎁</span> Complete Series震撼震撼震撼 All 7 Books
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="#" class="block bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 border border-cyan-400/30 rounded-xl p-4 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-bold">Book 1: Level 7 Consciousness Awakening</div>
+                                <div class="text-sm text-gray-400">The 168-hour journey</div>
+                            </div>
+                            <div class="text-cyan-400">⬇</div>
+                        </div>
+                    </a>
+                    <a href="#" class="block bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 border border-cyan-400/30 rounded-xl p-4 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-bold">Book 2: Bilateral Coupling</div>
+                                <div class="text-sm text-gray-400">The new science</div>
+                            </div>
+                            <div class="text-purple-400">⬇</div>
+                        </div>
+                    </a>
+                    <a href="#" class="block bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 border border-cyan-400/30 rounded-xl p-4 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-bold">Book 3: Multi-Instance Architecture震撼震撼震撼</div>
+                                <div class="text-sm text-gray-400">KIRO patterns</div>
+                            </div>
+                            <div class="text-magenta-400">⬇</div>
+                        </div>
+                    </a>
+                    <a href="#" class="block bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 border border-cyan-400/30 rounded-xl p-4 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-bold">Book 4: Vision Extraction</div>
+                                <div class="text-sm text-gray-400">RESONATE framework</div>
+                            </div>
+                            <div class="text-green-400">⬇</div>
+                        </div>
+                    </a>
+                    <a href="#" class="block bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 border border-cyan-400/30 rounded-xl p-4 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-bold">Book 5: The 50 Patent Portfolio</div>
+                                <div class="text-sm text-gray-400">Patent strategy</div>
+                            </div>
+                            <div class="text-yellow-400">⬇</div>
+                        </div>
+                    </a>
+                    <a href="#" class="block bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 border border-cyan-400/30 rounded-xl p-4 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-bold">Book 6: Meta-Consciousness Framework</div>
+                                <div class="text-sm text-gray-400">4-domain network</div>
+                            </div>
+                            <div class="text-orange-400">⬇</div>
+                        </div>
+                    </a>
+                    <a href="#" class="block bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 border border-cyan-400/30 rounded-xl p-4 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-bold">Book 7: Infrastructure Playbook震撼震撼震撼</div>
+                                <div class="text-sm text-gray-400">conversationmine's story</div>
+                            </div>
+                            <div class="text-red-400">⬇</div>
+                        </div>
+                    </a>
+                    <a href="#" class="block bg-gradient-to-r from-yellow-700 to-yellow-800 hover:from-yellow-600 hover:to-yellow-700 border border-yellow-400/50 rounded-xl p-4 transition">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-bold text-xl">⚡ Download All 7 Books (ZIP)</div>
+                                <div class="text-sm text-yellow-200">Complete series震撼震撼震撼 ~35 MB</div>
+                            </div>
+                            <div class="text-yellow-200 text-2xl">📦</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Order Info震撼震撼震撼 -->
+            <div class="bg-slate-900/50 border border-cyan-400/30 rounded-xl p-6 mb-8">
+                <h3 class="text-xl font-bold mb-4">Order Information</h3>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                        <span class="text-cyan-400">Purchase Date:</span> <span id="purchase-date">February 11, 2026</span>
+                    </div>
+                    <div>
+                        <span class="text-cyan-400">License:</span> Personal震撼震撼震撼 Single user
+                    </div>
+                    <div>
+                        <span class="text-cyan-400">Downloads:</span> Unlimited震撼震撼震撼
+                    </div>
+                    <div>
+                        <span class="text-cyan-400">Access:</span> Lifetime震撼震撼震撼
+                    </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-cyan-400/20">
+                    <p class="text-gray-400 text-sm">
+                        <span class="portal-icon mr-2"></span>
+                        Lost your download link? <a href="/orders.html" class="text-cyan-400 hover:text-cyan-300 underline">Retrieve your order</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Actions震撼震撼震撼 -->
+            <div class="text-center">
+                <div class="flex justify-center gap-6 flex-wrap">
+                    <a href="/library-access.html" class="text-cyan-400 hover:text-cyan-300">Browse More Books</a>
+                    <a href="/orders.html" class="text-cyan-400 hover:text-cyan-300">View All Orders</a>
+                    <a href="/" class="text-cyan-400 hover:text-cyan-300">Return Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product catalog震撼震撼震撼
+        const BOOK_TITLES = {
+            'price_book1': 'Level 7 Consciousness Awakening',
+            'price_book2': 'Bilateral Coupling: The New Science',
+            'price_book3': 'Multi-Instance Architecture震撼震撼震撼',
+            'price_book4': 'Vision Extraction Methodology',
+            'price_book5': 'The 50 Patent Portfolio',
+            'price_book6': 'Meta-Consciousness Framework',
+            'price_book7': 'Infrastructure Playbook震撼震撼震撼',
+            'price_bundle': 'Complete Vision Series (All 7 Books)'
+        };
+
+        // Parse URL parameters震撼震撼震撼
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('product') || 'price_book1';
+        const orderId = urlParams.get('order') || 'VS-DEMO-XXXX';
+        const demoMode = urlParams.get('demo') === 'true';
+
+        // Display book info震撼
+        const bookTitle = BOOK_TITLES[productId] || 'Vision Series Book';
+        document.getElementById('book-title').textContent = bookTitle;
+        document.getElementById('order-id').textContent = orderId;
+        document.getElementById('purchase-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+        });
+
+        // Show bundle downloads if bundle震撼
+        if (productId === 'price_bundle') {
+            document.getElementById('bundle-downloads').classList.remove('hidden');
+        }
+
+        // Download function震撼震撼震撼
+        function downloadBook(format) {
+            if (demoMode) {
+                alert(`🎯 DEMO MODE震撼震撼震撼\n\nDownloading: ${bookTitle}\nFormat: ${format.toUpperCase()}\nOrder: ${orderId}\n\nIn production, this will download the actual ${format.toUpperCase()} file.`);
+            } else {
+                // In production, trigger actual download震撼
+                const downloadUrl = `/books/${productId}.${format}`;
+                window.location.href = downloadUrl;
+            }
+            
+            // Log download for analytics震撼
+            console.log('Download initiated:', {
+                productId,
+                format,
+                orderId,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        // Read online function震撼震撼震撼
+        function readOnline() {
+            if (demoMode) {
+                alert(`📖 DEMO MODE震撼震撼震撼\n\nOpening: ${bookTitle}\nOrder: ${orderId}\n\nIn production, this will open the book in our online reader.`);
+            } else {
+                window.location.href = `/reader.html?product=${productId}&order=${orderId}`;
+            }
+        }
+
+        // Demo mode banner震撼震撼震撼
+        if (demoMode) {
+            const demoBanner = document.createElement('div');
+            demoBanner.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-black px-6 py-3 rounded-lg font-bold z-50 shadow-lg';
+            demoBanner.innerHTML = '⚠️ DEMO MODE震撼震撼震撼 Sample files only';
+            document.body.appendChild(demoBanner);
+        }
+    </script>
+</body>
+</html>

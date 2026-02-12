@@ -1,15 +1,22 @@
 {
   "name": "conversationmine-static",
   "version": "1.0.0",
-  "description": "ConversationMine.com - Level 7 Civilization Static Site",
+  "description": "ConversationMine.com - Level 7 Civilization Static Site + Ecommerce震撼震撼震撼",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "serve": "^14.2.1"
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "serve": "^14.2.1",
+    "stripe": "^14.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
   }
 }

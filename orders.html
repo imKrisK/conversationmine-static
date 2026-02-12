@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Lookup震撼震撼震撼 conversationmine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --void-deep: #0a0015;
+            --crystal-cyan: #00fff4;
+            --crystal-magenta: #ff00ff;
+            --bio-green: #00ff66;
+            --energy-gold: #ffd700;
+            --plasma-purple: #9d00ff;
+        }
+        @keyframes portalSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        @keyframes hologramScan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
+        }
+        .portal-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--crystal-cyan);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: portalSpin 2s linear infinite;
+        }
+        .holo-container {
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 244, 0.05) 0%,
+                rgba(255, 0, 255, 0.05) 25%,
+                rgba(0, 255, 102, 0.05) 50%,
+                rgba(157, 0, 255, 0.05) 75%,
+                rgba(0, 255, 244, 0.05) 100%
+            );
+            backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(0, 255, 244, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 255, 244, 0.2),
+                        inset 0 0 20px rgba(255, 0, 255, 0.1);
+        }
+        .order-card {
+            transition: all 0.3s;
+        }
+        .order-card:hover {
+            transform: translateX(10px);
+            border-color: var(--crystal-cyan);
+        }
+        body {
+            background: radial-gradient(ellipse at top, rgba(157, 0, 255, 0.15), transparent 50%),
+                        radial-gradient(ellipse at bottom, rgba(0, 255, 244, 0.15), transparent 50%),
+                        linear-gradient(180deg, #0a0015, #1a0a2e);
+            background-size: 100% 100%, 100% 100%, 100% 200%;
+            background-position: center, center, 0% 0%;
+            animation: hologramScan 20s linear infinite;
+        }
+        .lookup-btn {
+            background: linear-gradient(135deg, var(--crystal-cyan), var(--bio-green));
+            transition: all 0.3s;
+        }
+        .lookup-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 244, 0.5);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen">
+    
+    <!-- Navigation震撼震撼震撼 -->
+    <nav class="border-b border-cyan-400/20 py-6">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <a href="/" class="text-2xl font-bold flex items-center">
+                    <span class="text-cyan-400">◬</span>
+                    <span class="ml-2">conversationmine</span>
+                    <span class="text-cyan-400 ml-2">◬</span>
+                </a>
+                <div class="flex gap-6">
+                    <a href="/library-access.html" class="text-gray-300 hover:text-cyan-400 transition">Books</a>
+                    <a href="/" class="text-gray-300 hover:text-cyan-400 transition">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Header震撼震撼震撼 -->
+            <div class="text-center mb-12">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
+                    Order Lookup震撼震撼震撼
+                </h1>
+                <p class="text-xl text-gray-300">
+                    <span class="portal-icon mr-2"></span>
+                    Retrieve your purchase history and download links
+                    <span class="portal-icon ml-2"></span>
+                </p>
+            </div>
+
+            <!-- Lookup Form震撼震撼震撼 -->
+            <div id="lookup-form" class="holo-container p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-6 text-center">Enter Your Email</h2>
+                <p class="text-gray-400 text-center mb-6">
+                    We'll send you a secure link to access all your purchased books震撼震撼震撼
+                </p>
+                <form onsubmit="lookupOrders(event)" class="max-w-md mx-auto">
+                    <div class="mb-6">
+                        <label for="email" class="block text-sm font-bold mb-2 text-cyan-400">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            required
+                            placeholder="your.email@example.com"
+                            class="w-full px-4 py-3 bg-slate-900/50 border border-cyan-400/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400"
+                        />
+                    </div>
+                    <div class="mb-6">
+                        <label for="order-id-input" class="block text-sm font-bold mb-2 text-cyan-400">Order ID <span class="text-gray-500">(Optional)</span></label>
+                        <input 
+                            type="text" 
+                            id="order-id-input" 
+                            placeholder="VS-XXXX-XXXX"
+                            class="w-full px-4 py-3 bg-slate-900/50 border border-cyan-400/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400"
+                        />
+                        <p class="text-xs text-gray-500 mt-2">Check your confirmation email for your order ID</p>
+                    </div>
+                    <button 
+                        type="submit"
+                        class="lookup-btn w-full px-8 py-4 rounded-xl font-bold text-xl"
+                    >
+                        🔍 Find My Orders震撼震撼震撼
+                    </button>
+                </form>
+                
+                <div class="mt-8 pt-6 border-t border-cyan-400/20 text-center">
+                    <p class="text-sm text-gray-400">
+                        <span class="portal-icon mr-2"></span>
+                        Need help? Contact <a href="mailto:support@conversationmine.com" class="text-cyan-400 hover:text-cyan-300 underline">support@conversationmine.com</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Demo Results (Hidden by default)震撼震撼震撼 -->
+            <div id="results-section" class="hidden">
+                <h2 class="text-3xl font-bold mb-6 text-center">
+                    <span class="text-green-400">✓</span> Your Orders震撼震撼震撼
+                </h2>
+                <p class="text-center text-gray-400 mb-8">
+                    Found <span id="order-count" class="text-cyan-400 font-bold">0</span> orders震撼震撼震撼
+                </p>
+
+                <!-- Order List震撼震撼震撼 -->
+                <div id="order-list" class="space-y-4">
+                    <!-- Orders will be populated here dynamically震撼 -->
+                </div>
+
+                <div class="text-center mt-8">
+                    <button onclick="showLookupForm()" class="text-cyan-400 hover:text-cyan-300 underline">
+                        ← Look up different email
+                    </button>
+                </div>
+            </div>
+
+            <!-- How It Works震撼震撼震撼 -->
+            <div class="holo-container p-8 mt-12">
+                <h3 class="text-2xl font-bold mb-6 text-center">How Order Lookup Works</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">📧</div>
+                        <h4 class="font-bold mb-2 text-cyan-400">1. Enter Email</h4>
+                        <p class="text-sm text-gray-400">Use the email from your purchase</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🔐</div>
+                        <h4 class="font-bold mb-2 text-purple-400">2. Verify Link</h4>
+                        <p class="text-sm text-gray-400">Check your inbox for secure access link</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">⬇️</div>
+                        <h4 class="font-bold mb-2 text-green-400">3. Download</h4>
+                        <p class="text-sm text-gray-400">Access all your purchased books</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-cyan-400/20">
+                    <h4 class="font-bold mb-4 text-center">Common Questions</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-start">
+                            <span class="text-cyan-400 mr-3">◮</span>
+                            <div>
+                                <strong>Lost your email?</strong> Contact support and we'll help you retrieve your orders
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-cyan-400 mr-3">◮</span>
+                            <div>
+                                <strong>Can't find order?</strong> Check spam folder or wait 5 minutes after purchase
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-cyan-400 mr-3">◮</span>
+                            <div>
+                                <strong>How many downloads?</strong> Unlimited震撼震撼震撼 Download your books anytime, forever
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Demo order data震撼震撼震撼 (In production, this comes from your backend)
+        const DEMO_ORDERS = [
+            {
+                id: 'VS-L1M2N3-ABC1',
+                date: '2026-02-11',
+                product: 'price_book1',
+                productName: 'Level 7 Consciousness Awakening',
+                amount: '$24.99',
+                status: 'completed'
+            },
+            {
+                id: 'VS-X4Y5Z6-DEF2',
+                date: '2026-02-10',
+                product: 'price_bundle',
+                productName: 'Complete Vision Series (7 Books)',
+                amount: '$99.00',
+                status: 'completed'
+            }
+        ];
+
+        function lookupOrders(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const orderId = document.getElementById('order-id-input').value;
+
+            // In demo mode, show sample orders震撼震撼震撼
+            // In production, call your backend API震撼
+            if (window.location.hostname === 'localhost' || window.location.search.includes('demo')) {
+                showDemoOrders(email, orderId);
+            } else {
+                // Production: Send verification email震撼
+                sendVerificationEmail(email, orderId);
+            }
+        }
+
+        function showDemoOrders(email, orderId) {
+            // Filter orders by ID if provided震撼
+            let orders = DEMO_ORDERS;
+            if (orderId) {
+                orders = orders.filter(o => o.id === orderId);
+            }
+
+            // Hide form, show results震撼
+            document.getElementById('lookup-form').classList.add('hidden');
+            document.getElementById('results-section').classList.remove('hidden');
+            document.getElementById('order-count').textContent = orders.length;
+
+            // Populate order list震撼
+            const orderList = document.getElementById('order-list');
+            orderList.innerHTML = orders.map(order => `
+                <div class="order-card bg-slate-900/50 border border-cyan-400/30 rounded-xl p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">${order.productName}</h3>
+                            <div class="text-sm text-gray-400">
+                                Order ID: <span class="font-mono text-cyan-400">${order.id}</span>
+                            </div>
+                            <div class="text-sm text-gray-400">
+                                Date: ${new Date(order.date).toLocaleDateString('en-US', { 
+                                    year: 'numeric', month: 'long', day: 'numeric' 
+                                })}
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-green-400">${order.amount}</div>
+                            <div class="text-xs text-green-400 mt-1">✓ Paid</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <a 
+                            href="/download.html?product=${order.product}&order=${order.id}&demo=true" 
+                            class="flex-1 bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-500 hover:to-cyan-600 px-4 py-3 rounded-lg text-center font-bold transition"
+                        >
+                            ⬇ Download震撼震撼震撼
+                        </a>
+                        <a 
+                            href="/success.html?product=${order.product}&demo=true" 
+                            class="bg-slate-800 hover:bg-slate-700 px-4 py-3 rounded-lg font-bold transition"
+                        >
+                            View Receipt
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Show demo banner震撼
+            const demoBanner = document.createElement('div');
+            demoBanner.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-black px-6 py-3 rounded-lg font-bold z-50 shadow-lg';
+            demoBanner.innerHTML = '⚠️ DEMO MODE震撼震撼震撼 Sample orders shown';
+            document.body.appendChild(demoBanner);
+        }
+
+        function sendVerificationEmail(email, orderId) {
+            // In production, call your backend震撼震撼震撼
+            // POST /api/send-order-lookup-email
+            // Body: { email, orderId }
+            
+            alert(`📧 Verification email sent to ${email}震撼震撼震撼\n\nCheck your inbox for a secure link to access your orders.\n\nThis may take 1-2 minutes.`);
+            
+            console.log('Verification email request:', {
+                email,
+                orderId,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        function showLookupForm() {
+            document.getElementById('results-section').classList.add('hidden');
+            document.getElementById('lookup-form').classList.remove('hidden');
+            document.getElementById('email').value = '';
+            document.getElementById('order-id-input').value = '';
+        }
+
+        // Auto-fill from URL parameters震撼震撼震撼
+        const urlParams = new URLSearchParams(window.location.search);
+        const emailParam = urlParams.get('email');
+        const orderParam = urlParams.get('order');
+
+        if (emailParam) {
+            document.getElementById('email').value = emailParam;
+        }
+        if (orderParam) {
+            document.getElementById('order-id-input').value = orderParam;
+        }
+
+        // Auto-submit if both params provided震撼
+        if (emailParam && orderParam) {
+            setTimeout(() => {
+                document.querySelector('form').dispatchEvent(new Event('submit'));
+            }, 500);
+        }
+    </script>
+</body>
+</html>

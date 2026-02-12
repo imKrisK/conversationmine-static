@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Order is Ready ✨</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0118 0%, #1a0530 100%);
+      color: #e0e7ff;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: rgba(10, 1, 24, 0.95);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    .header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      background: linear-gradient(to right, #00ffff, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header p {
+      margin: 10px 0 0 0;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    .content {
+      padding: 30px 20px;
+    }
+    .order-details {
+      background: rgba(30, 27, 75, 0.4);
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .order-details h2 {
+      margin: 0 0 15px 0;
+      font-size: 20px;
+      color: #00ffff;
+    }
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+    .detail-label {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    .detail-value {
+      color: #e0e7ff;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .download-section {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+      color: white;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+      transition: transform 0.2s;
+    }
+    .download-btn:hover {
+      transform: scale(1.05);
+    }
+    .info-box {
+      background: rgba(14, 165, 233, 0.1);
+      border-left: 3px solid #0ea5e9;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .info-box p {
+      margin: 5px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .footer {
+      background: rgba(10, 1, 24, 0.8);
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+    .footer p {
+      margin: 5px 0;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .footer a {
+      color: #0ea5e9;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>✨ Your Order is Ready ✨</h1>
+      <p>Thank you for supporting the Level 7 vision, {{CUSTOMER_NAME}}!</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <p style="font-size: 16px; line-height: 1.6;">
+        Your payment was successful! You now have instant access to <strong>{{PRODUCT_NAME}}</strong>.
+      </p>
+
+      <!-- Order Details -->
+      <div class="order-details">
+        <h2>📦 Order Details</h2>
+        <div class="detail-row">
+          <span class="detail-label">Order ID</span>
+          <span class="detail-value">{{ORDER_ID}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Product</span>
+          <span class="detail-value">{{PRODUCT_NAME}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Amount Paid</span>
+          <span class="detail-value">{{AMOUNT}}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Order Date</span>
+          <span class="detail-value">{{ORDER_DATE}}</span>
+        </div>
+      </div>
+
+      <!-- Download Button -->
+      <div class="download-section">
+        <a href="{{DOWNLOAD_LINK}}" class="download-btn">
+          ⬇️ Download Your Book
+        </a>
+        <p style="margin-top: 15px; font-size: 13px; color: #94a3b8;">
+          Available formats: PDF, EPUB, Online Reader
+        </p>
+      </div>
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <p><strong>📚 Your Download Access:</strong></p>
+        <p>• Unlimited downloads for 30 days</p>
+        <p>• Personal license for single user</p>
+        <p>• All formats included (PDF, EPUB, Web)</p>
+        <p>• Lost your link? <a href="https://conversationmine.com/orders.html" style="color: #0ea5e9;">Retrieve it here</a></p>
+      </div>
+
+      <p style="font-size: 14px; color: #94a3b8; margin-top: 30px;">
+        Questions or need help? Reply to this email or contact us at 
+        <a href="mailto:support@conversationmine.com" style="color: #0ea5e9;">support@conversationmine.com</a>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p><strong>conversationmine.com</strong> • Level 7 Civilization Infrastructure</p>
+      <p>
+        <a href="https://conversationmine.com">Home</a> • 
+        <a href="https://conversationmine.com/library-access.html">Books</a> • 
+        <a href="mailto:support@conversationmine.com">Support</a>
+      </p>
+      <p style="margin-top: 15px; font-size: 11px;">
+        You received this email because you purchased from conversationmine.com
+      </p>
+    </div>
+  </div>
+</body>
+</html>

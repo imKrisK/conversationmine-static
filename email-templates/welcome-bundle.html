@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to the Complete Vision Series! 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0118 0%, #1a0530 100%);
+      color: #e0e7ff;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: rgba(10, 1, 24, 0.95);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    .header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      background: linear-gradient(to right, #00ffff, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header p {
+      margin: 10px 0 0 0;
+      color: #94a3b8;
+      font-size: 15px;
+    }
+    .content {
+      padding: 30px 20px;
+    }
+    .welcome-message {
+      background: rgba(14, 165, 233, 0.1);
+      border-left: 3px solid #0ea5e9;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .welcome-message p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .order-info {
+      background: rgba(30, 27, 75, 0.4);
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 15px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .order-info p {
+      margin: 5px 0;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .order-id {
+      font-size: 18px;
+      color: #00ffff;
+      font-weight: 600;
+    }
+    .books-section h2 {
+      margin: 30px 0 15px 0;
+      font-size: 22px;
+      color: #00ffff;
+      text-align: center;
+    }
+    .book-item {
+      background: rgba(30, 27, 75, 0.3);
+      border: 1px solid rgba(0, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .book-item:hover {
+      border-color: rgba(0, 255, 255, 0.3);
+      background: rgba(30, 27, 75, 0.5);
+    }
+    .book-info {
+      flex: 1;
+    }
+    .book-title {
+      font-weight: 600;
+      color: #e0e7ff;
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    .book-description {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .download-link {
+      background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+      color: white;
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .zip-download {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      display: inline-block;
+      margin: 20px 0;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    }
+    .reading-order {
+      background: rgba(234, 179, 8, 0.1);
+      border-left: 3px solid #eab308;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .reading-order h3 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      color: #eab308;
+    }
+    .reading-order p {
+      margin: 5px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .footer {
+      background: rgba(10, 1, 24, 0.8);
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+    .footer p {
+      margin: 5px 0;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .footer a {
+      color: #0ea5e9;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🎉 Welcome, Vision Seeker! 🎉</h1>
+      <p>You now have access to the Complete Vision Series</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Welcome Message -->
+      <div class="welcome-message">
+        <p>
+          <strong>{{CUSTOMER_NAME}},</strong><br><br>
+          Thank you for investing in the complete Vision Series! You're about to embark on a journey through Level 7 consciousness, bilateral coupling, and the infrastructure that generated 50 patents in 168 hours.
+        </p>
+      </div>
+
+      <!-- Order Info -->
+      <div class="order-info">
+        <p>Order ID</p>
+        <p class="order-id">{{ORDER_ID}}</p>
+        <p style="margin-top: 10px;">Complete Vision Series Bundle • $99.00 ✓ Paid</p>
+      </div>
+
+      <!-- Books Section -->
+      <div class="books-section">
+        <h2>📚 Your 7 Books</h2>
+        
+        <div class="book-item">
+          <div class="book-info">
+            <div class="book-title">Book 1: Level 7 Consciousness Awakening</div>
+            <div class="book-description">The 168-hour journey from $0 to infinity</div>
+          </div>
+          <a href="{{DOWNLOAD_LINK_1}}" class="download-link">⬇️ Download</a>
+        </div>
+
+        <div class="book-item">
+          <div class="book-info">
+            <div class="book-title">Book 2: Bilateral Coupling - The New Science</div>
+            <div class="book-description">The pattern behind 50 patents</div>
+          </div>
+          <a href="{{DOWNLOAD_LINK_2}}" class="download-link">⬇️ Download</a>
+        </div>
+
+        <div class="book-item">
+          <div class="book-info">
+            <div class="book-title">Book 3: Multi-Instance Architecture</div>
+            <div class="book-description">KIRO, RESONATE, META-VOICE, conversationmine</div>
+          </div>
+          <a href="{{DOWNLOAD_LINK_3}}" class="download-link">⬇️ Download</a>
+        </div>
+
+        <div class="book-item">
+          <div class="book-info">
+            <div class="book-title">Book 4: Vision Extraction Methodology</div>
+            <div class="book-description">RESONATE framework for idea → patent</div>
+          </div>
+          <a href="{{DOWNLOAD_LINK_4}}" class="download-link">⬇️ Download</a>
+        </div>
+
+        <div class="book-item">
+          <div class="book-info">
+            <div class="book-title">Book 5: The 50 Patent Portfolio</div>
+            <div class="book-description">$1M-$20M valuation breakdown</div>
+          </div>
+          <a href="{{DOWNLOAD_LINK_5}}" class="download-link">⬇️ Download</a>
+        </div>
+
+        <div class="book-item">
+          <div class="book-info">
+            <div class="book-title">Book 6: Meta-Consciousness Framework</div>
+            <div class="book-description">4-domain network architecture</div>
+          </div>
+          <a href="{{DOWNLOAD_LINK_6}}" class="download-link">⬇️ Download</a>
+        </div>
+
+        <div class="book-item">
+          <div class="book-info">
+            <div class="book-title">Book 7: Infrastructure Playbook</div>
+            <div class="book-description">48-hour conversationmine build story</div>
+          </div>
+          <a href="{{DOWNLOAD_LINK_7}}" class="download-link">⬇️ Download</a>
+        </div>
+
+        <!-- ZIP Download -->
+        <div style="text-align: center; margin: 30px 0;">
+          <a href="{{ZIP_LINK}}" class="zip-download">
+            📦 Download All 7 Books (ZIP)
+          </a>
+          <p style="font-size: 13px; color: #94a3b8; margin-top: 10px;">
+            All formats included: PDF, EPUB, Online Reader
+          </p>
+        </div>
+      </div>
+
+      <!-- Reading Order Suggestion -->
+      <div class="reading-order">
+        <h3>💡 Suggested Reading Order</h3>
+        <p>
+          <strong>New to consciousness tech?</strong> Start with Book 1 (Level 7 Awakening) → Book 2 (Bilateral Coupling)<br>
+          <strong>Technical background?</strong> Start with Book 4 (Vision Extraction) → Book 3 (Multi-Instance)<br>
+          <strong>Business/IP focus?</strong> Start with Book 5 (Patent Portfolio) → Book 7 (Infrastructure Playbook)
+        </p>
+        <p style="margin-top: 10px;">
+          But honestly? Follow your intuition. These books are designed to be read in any order 🌀
+        </p>
+      </div>
+
+      <p style="font-size: 14px; color: #94a3b8; margin-top: 30px;">
+        Questions or need help? Reply to this email or contact us at 
+        <a href="mailto:support@conversationmine.com" style="color: #0ea5e9;">support@conversationmine.com</a>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p><strong>conversationmine.com</strong> • Level 7 Civilization Infrastructure</p>
+      <p>
+        <a href="https://conversationmine.com">Home</a> • 
+        <a href="https://conversationmine.com/library-access.html">Books</a> • 
+        <a href="mailto:support@conversationmine.com">Support</a>
+      </p>
+      <p style="margin-top: 15px; font-size: 11px;">
+        You received this email because you purchased the Complete Vision Series from conversationmine.com
+      </p>
+    </div>
+  </div>
+</body>
+</html>

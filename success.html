@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>✅ Access Granted - Library震撼</title>
+    <title>✅ Order Confirmed震撼</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        :root {
+            --void-deep: #0a0015;
+            --crystal-cyan: #00fff4;
+            --crystal-magenta: #ff00ff;
+            --bio-green: #00ff66;
+            --energy-gold: #ffd700;
+            --plasma-purple: #9d00ff;
+        }
         @keyframes activationPulse {
             0%, 100% { transform: scale(1); opacity: 0.8; }
             50% { transform: scale(1.1); opacity: 1; }
@@ -16,6 +24,11 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+        @keyframes portalSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
         .activation-orb {
             animation: activationPulse 2s ease-in-out infinite;
         }
@@ -24,85 +37,166 @@
             background-size: 800% 800%;
             animation: consciousnessFlow 8s ease infinite;
         }
+        .portal-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--crystal-cyan);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: portalSpin 2s linear infinite;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, var(--crystal-cyan), var(--bio-green));
+            transition: all 0.3s;
+        }
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 244, 0.5);
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 text-white min-h-screen flex items-center justify-center">
     
-    <div class="container mx-auto px-6">
-        <div class="max-w-3xl mx-auto text-center">
+    <div class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto">
             
-            <!-- Success震撼 -->
-            <div class="activation-orb inline-block mb-8">
-                <div class="w-32 h-32 rounded-full consciousness-gradient flex items-center justify-center">
-                    <span class="text-6xl">◬</span>
+            <!-- Success Orb震撼震撼震撼 -->
+            <div class="text-center mb-8">
+                <div class="activation-orb inline-block mb-6">
+                    <div class="w-32 h-32 rounded-full consciousness-gradient flex items-center justify-center">
+                        <span class="text-6xl">◬</span>
+                    </div>
+                </div>
+
+                <h1 id="success-title" class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Order Confirmed震撼震撼震撼
+                </h1>
+
+                <p id="success-subtitle" class="text-2xl text-gray-300 mb-8">
+                    Your purchase is complete震撼震撼震撼
+                </p>
+            </div>
+
+            <!-- Book Purchase Section (Hidden by default)震撼震撼震撼 -->
+            <div id="book-purchase" class="hidden">
+                <!-- Order Details震撼震撼震撼 -->
+                <div class="bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-cyan-400/50 rounded-2xl p-8 mb-8">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center justify-center">
+                        <span class="portal-icon mr-3"></span>
+                        <span>Order Details</span>
+                        <span class="portal-icon ml-3"></span>
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-6 text-left">
+                        <div>
+                            <div class="text-cyan-400 font-bold mb-2">◮ Product</div>
+                            <div id="product-name" class="text-xl">Vision Series Book</div>
+                        </div>
+                        <div>
+                            <div class="text-cyan-400 font-bold mb-2">◮ Order ID</div>
+                            <div id="order-id" class="text-xl font-mono">VS-XXXX-XXXX</div>
+                        </div>
+                        <div>
+                            <div class="text-cyan-400 font-bold mb-2">◮ Amount Paid</div>
+                            <div id="amount-paid" class="text-xl">$24.99</div>
+                        </div>
+                        <div>
+                            <div class="text-cyan-400 font-bold mb-2">◮ Purchase Date</div>
+                            <div id="purchase-date" class="text-xl">February 11, 2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Section震撼震撼震撼 -->
+                <div class="bg-gradient-to-r from-cyan-900/40 to-green-900/40 border border-cyan-400/50 rounded-2xl p-8 mb-8 text-center">
+                    <div class="text-5xl mb-4">📚</div>
+                    <h3 class="text-2xl font-bold mb-4">Your Book is Ready震撼震撼震撼</h3>
+                    <p class="text-gray-300 mb-6">Download immediately or access anytime from your order history</p>
+                    
+                    <a id="download-link" href="/download.html" class="download-btn inline-block px-8 py-4 rounded-xl font-bold text-xl mb-4">
+                        ⬇ DOWNLOAD PDF NOW震撼震撼震撼
+                    </a>
+                    
+                    <div class="text-sm text-gray-400 mt-4">
+                        <span class="portal-icon mr-2"></span>
+                        Lifetime access震撼震撼震撼 Download link sent to your email
+                    </div>
+                </div>
+
+                <!-- Bundle Bonus (if bundle purchased)震撼震撼震撼 -->
+                <div id="bundle-bonus" class="hidden bg-gradient-to-r from-yellow-900/40 to-orange-900/40 border border-yellow-400/50 rounded-2xl p-8 mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-center">🎁 Complete Series Unlocked震撼震撼震撼</h3>
+                    <p class="text-center text-gray-300 mb-6">You saved $75震撼震撼震撼 All 7 books available for download</p>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="flex items-center"><span class="text-green-400 mr-2">✓</span> Level 7 Consciousness Awakening</div>
+                        <div class="flex items-center"><span class="text-green-400 mr-2">✓</span> Bilateral Coupling: The New Science</div>
+                        <div class="flex items-center"><span class="text-green-400 mr-2">✓</span> Multi-Instance Architecture震撼震撼震撼</div>
+                        <div class="flex items-center"><span class="text-green-400 mr-2">✓</span> Vision Extraction Methodology</div>
+                        <div class="flex items-center"><span class="text-green-400 mr-2">✓</span> The 50 Patent Portfolio</div>
+                        <div class="flex items-center"><span class="text-green-400 mr-2">✓</span> Meta-Consciousness Framework</div>
+                        <div class="flex items-center"><span class="text-green-400 mr-2">✓</span> Infrastructure Playbook震撼震撼震撼</div>
+                    </div>
                 </div>
             </div>
 
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Consciousness Coupled震撼
-            </h1>
-
-            <p class="text-2xl text-gray-300 mb-12">
-                Your Library access is now active震撼<br/>
-                Level 7 knowledge nexus unlocked
-            </p>
-
-            <!-- Access Details震撼 -->
-            <div class="bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-cyan-400/50 rounded-2xl p-8 mb-12">
-                <h2 class="text-2xl font-bold mb-6">⬢ Access Activated ⬢</h2>
-                <div class="grid md:grid-cols-2 gap-6 text-left">
-                    <div>
-                        <div class="text-cyan-400 font-bold mb-2">◮ Subscription Tier</div>
-                        <div id="tier-name" class="text-xl">Neural Pathways震撼</div>
-                    </div>
-                    <div>
-                        <div class="text-cyan-400 font-bold mb-2">◮ Billing Cycle</div>
-                        <div class="text-xl">Monthly (auto-renew)</div>
-                    </div>
-                    <div>
-                        <div class="text-cyan-400 font-bold mb-2">◮ Access Level</div>
-                        <div class="text-xl">All fragments + 2,000+ templates</div>
-                    </div>
-                    <div>
-                        <div class="text-cyan-400 font-bold mb-2">◮ Next Billing Date</div>
-                        <div id="next-billing" class="text-xl">March 11, 2026</div>
+            <!-- Subscription Section (Hidden by default)震撼震撼震撼 -->
+            <div id="subscription-access" class="hidden">
+                <div class="bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-cyan-400/50 rounded-2xl p-8 mb-12">
+                    <h2 class="text-2xl font-bold mb-6">⬢ Access Activated ⬢</h2>
+                    <div class="grid md:grid-cols-2 gap-6 text-left">
+                        <div>
+                            <div class="text-cyan-400 font-bold mb-2">◮ Subscription Tier</div>
+                            <div id="tier-name" class="text-xl">Neural Pathways震撼</div>
+                        </div>
+                        <div>
+                            <div class="text-cyan-400 font-bold mb-2">◮ Billing Cycle</div>
+                            <div class="text-xl">Monthly (auto-renew)</div>
+                        </div>
+                        <div>
+                            <div class="text-cyan-400 font-bold mb-2">◮ Access Level</div>
+                            <div class="text-xl">All fragments + 2,000+ templates</div>
+                        </div>
+                        <div>
+                            <div class="text-cyan-400 font-bold mb-2">◮ Next Billing Date</div>
+                            <div id="next-billing" class="text-xl">March 11, 2026</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Quick Actions震撼 -->
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <a href="/library/browse" class="bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-500 hover:to-cyan-600 rounded-xl p-6 transition transform hover:scale-105">
-                    <div class="text-3xl mb-3">◮</div>
-                    <div class="font-bold mb-2">Browse Fragments</div>
-                    <div class="text-sm text-cyan-200">Explore consciousness library震撼</div>
-                </a>
-                <a href="/library/templates" class="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 rounded-xl p-6 transition transform hover:scale-105">
-                    <div class="text-3xl mb-3">◬</div>
-                    <div class="font-bold mb-2">Neural Templates</div>
-                    <div class="text-sm text-purple-200">2,000+ ready-to-use patterns</div>
-                </a>
-                <a href="/library/books" class="bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-500 hover:to-pink-600 rounded-xl p-6 transition transform hover:scale-105">
-                    <div class="text-3xl mb-3">⬢</div>
-                    <div class="font-bold mb-2">Vision Archive</div>
-                    <div class="text-sm text-pink-200">7-book consciousness journey</div>
-                </a>
+                <!-- Quick Actions震撼 -->
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <a href="/library/browse.html" class="bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-500 hover:to-cyan-600 rounded-xl p-6 transition transform hover:scale-105">
+                        <div class="text-3xl mb-3">◮</div>
+                        <div class="font-bold mb-2">Browse Fragments</div>
+                        <div class="text-sm text-cyan-200">Explore consciousness library震撼</div>
+                    </a>
+                    <a href="/library/templates.html" class="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 rounded-xl p-6 transition transform hover:scale-105">
+                        <div class="text-3xl mb-3">◬</div>
+                        <div class="font-bold mb-2">Neural Templates</div>
+                        <div class="text-sm text-purple-200">2,000+ ready-to-use patterns</div>
+                    </a>
+                    <a href="/library/books.html" class="bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-500 hover:to-pink-600 rounded-xl p-6 transition transform hover:scale-105">
+                        <div class="text-3xl mb-3">⬢</div>
+                        <div class="font-bold mb-2">Vision Archive</div>
+                        <div class="text-sm text-pink-200">7-book consciousness journey</div>
+                    </a>
+                </div>
             </div>
 
             <!-- Confirmation Email震撼 -->
-            <div class="bg-slate-900/50 border border-cyan-400/30 rounded-xl p-6 mb-12">
+            <div class="bg-slate-900/50 border border-cyan-400/30 rounded-xl p-6 mb-8 text-center">
                 <p class="text-gray-400">
                     ✅ Confirmation email sent to <span id="user-email" class="text-cyan-400 font-bold">your email</span>震撼<br/>
-                    Check your inbox for login credentials and quick start guide
+                    <span id="email-detail">Check your inbox for download link and order details</span>
                 </p>
             </div>
 
             <!-- Need Help?震撼 -->
-            <div class="text-gray-500">
-                <p class="mb-4">Questions about your subscription?</p>
-                <div class="flex justify-center gap-6">
-                    <a href="/support" class="text-cyan-400 hover:text-cyan-300">Support震撼</a>
-                    <a href="/library/settings" class="text-cyan-400 hover:text-cyan-300">Manage Subscription</a>
+            <div class="text-gray-500 text-center">
+                <p class="mb-4">Questions about your order?</p>
+                <div class="flex justify-center gap-6 flex-wrap">
+                    <a href="/orders.html" class="text-cyan-400 hover:text-cyan-300">View Order History</a>
+                    <a href="/library-access.html" class="text-cyan-400 hover:text-cyan-300">Browse More Books</a>
                     <a href="/" class="text-cyan-400 hover:text-cyan-300">Return Home</a>
                 </div>
             </div>
@@ -110,21 +204,105 @@
     </div>
 
     <script>
-        // Parse URL parameters from Stripe震撼
+        // Product catalog震撼震撼震撼
+        const PRODUCTS = {
+            'price_bundle': { name: 'Complete Vision Series (7 Books)', price: '$99', type: 'bundle' },
+            'price_book1': { name: 'Level 7 Consciousness Awakening', price: '$24.99', type: 'book' },
+            'price_book2': { name: 'Bilateral Coupling: The New Science', price: '$24.99', type: 'book' },
+            'price_book3': { name: 'Multi-Instance Architecture震撼震撼震撼', price: '$24.99', type: 'book' },
+            'price_book4': { name: 'Vision Extraction Methodology', price: '$24.99', type: 'book' },
+            'price_book5': { name: 'The 50 Patent Portfolio', price: '$24.99', type: 'book' },
+            'price_book6': { name: 'Meta-Consciousness Framework', price: '$24.99', type: 'book' },
+            'price_book7': { name: 'Infrastructure Playbook震撼震撼震撼', price: '$24.99', type: 'book' },
+            'subscription': { name: 'Neural Pathways Subscription', price: 'Monthly', type: 'subscription' }
+        };
+
+        // Parse URL parameters震撼震撼震撼
         const urlParams = new URLSearchParams(window.location.search);
         const sessionId = urlParams.get('session_id');
+        const demoMode = urlParams.get('demo');
+        const productId = urlParams.get('product') || 'price_book1';
+        const tier = urlParams.get('tier');
 
-        // Fetch session details (you'd call your backend here)
-        if (sessionId) {
-            // For now, show placeholder
-            // In production, fetch actual session data from Stripe
-            console.log('Stripe session ID:', sessionId);
+        // Get product info震撼
+        const product = PRODUCTS[productId] || PRODUCTS['price_book1'];
+        const isBook = product.type === 'book' || product.type === 'bundle';
+        const isBundle = product.type === 'bundle';
+
+        // Display appropriate section震撼震撼震撼
+        if (isBook) {
+            document.getElementById('book-purchase').classList.remove('hidden');
+            document.getElementById('success-title').textContent = isBundle ? 'Complete Series Unlocked震撼震撼震撼' : 'Book Downloaded震撼震撼震撼';
+            document.getElementById('success-subtitle').textContent = isBundle ? 'All 7 books are yours forever震撼震撼震撼' : 'Your book is ready to read震撼震撼震撼';
+            
+            // Populate order details震撼
+            document.getElementById('product-name').textContent = product.name;
+            document.getElementById('amount-paid').textContent = product.price;
+            document.getElementById('order-id').textContent = generateOrderId();
+            document.getElementById('purchase-date').textContent = new Date().toLocaleDateString('en-US', { 
+                year: 'numeric', month: 'long', day: 'numeric' 
+            });
+            
+            // Show bundle bonus if bundle震撼
+            if (isBundle) {
+                document.getElementById('bundle-bonus').classList.remove('hidden');
+            }
+            
+            // Set download link震撼
+            const downloadLink = document.getElementById('download-link');
+            downloadLink.href = `/download.html?product=${productId}&order=${generateOrderId()}&demo=${demoMode || 'false'}`;
+            
+            document.getElementById('email-detail').textContent = 'Check your inbox for download link and order details';
+        } else {
+            document.getElementById('subscription-access').classList.remove('hidden');
+            document.getElementById('success-title').textContent = 'Consciousness Coupled震撼';
+            document.getElementById('success-subtitle').textContent = 'Your Library access is now active震撼';
+            
+            if (tier) {
+                document.getElementById('tier-name').textContent = decodeURIComponent(tier);
+            }
+            
+            document.getElementById('email-detail').textContent = 'Check your inbox for login credentials and quick start guide';
         }
 
-        // Auto-redirect to library after 10 seconds震撼
-        setTimeout(() => {
-            window.location.href = '/library/browse';
-        }, 10000);
+        // Demo mode banner震撼震撼震撼
+        if (demoMode === 'true') {
+            const demoBanner = document.createElement('div');
+            demoBanner.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-black px-6 py-3 rounded-lg font-bold z-50 shadow-lg';
+            demoBanner.innerHTML = '⚠️ DEMO MODE震撼震撼震撼 No actual payment processed';
+            document.body.appendChild(demoBanner);
+        }
+
+        // Generate unique order ID震撼
+        function generateOrderId() {
+            const timestamp = Date.now().toString(36).toUpperCase();
+            const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+            return `VS-${timestamp}-${random}`;
+        }
+
+        // Fetch real session details in production震撼
+        if (sessionId && demoMode !== 'true') {
+            console.log('Stripe session ID:', sessionId);
+            
+            // TODO: Call your backend to verify payment
+            // fetch('/api/verify-payment?session_id=' + sessionId)
+            //     .then(res => res.json())
+            //     .then(data => {
+            //         document.getElementById('product-name').textContent = data.productName;
+            //         document.getElementById('amount-paid').textContent = data.amount;
+            //         document.getElementById('order-id').textContent = data.orderId;
+            //         document.getElementById('user-email').textContent = data.email;
+            //     });
+        }
+
+        // Log order for analytics震撼
+        console.log('Order completed:', {
+            productId,
+            productName: product.name,
+            price: product.price,
+            orderId: generateOrderId(),
+            timestamp: new Date().toISOString()
+        });
     </script>
 </body>
 </html>
