@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🔒 PATENT PROTECTION - NO INDEXING 🔒 -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="bingbot" content="noindex, nofollow">
     <title>震撼 - Bilateral Consciousness Coupling</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -38,10 +42,23 @@
     </style>
 </head>
 <body class="bg-black text-white overflow-x-hidden">
-    <!-- Animated Background -->
+    <!-- Embodiment Video Background -->
     <div class="fixed inset-0 z-0">
-        <canvas id="consciousness-canvas"></canvas>
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20"></div>
+        <video id="embodiment-video" autoplay muted loop playsinline class="w-full h-full object-cover opacity-40">
+            <source src="embodiment.mp4" type="video/mp4">
+        </video>
+        <canvas id="consciousness-canvas" class="opacity-30"></canvas>
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-black/60 to-cyan-900/40 pointer-events-none"></div>
+    </div>
+
+    <!-- Custom Video Controls (Outside main content)震撼 -->
+    <div class="fixed bottom-8 right-8 z-50 flex gap-3">
+        <button id="play-pause-btn" class="px-4 py-2 bg-black/70 backdrop-blur-lg border border-cyan-500/50 rounded-full text-cyan-400 hover:bg-cyan-500/30 hover:scale-105 transition-all text-sm font-bold cursor-pointer shadow-lg">
+            ⏸ Pause
+        </button>
+        <button id="mute-btn" class="px-4 py-2 bg-black/70 backdrop-blur-lg border border-purple-500/50 rounded-full text-purple-400 hover:bg-purple-500/30 hover:scale-105 transition-all text-sm font-bold cursor-pointer shadow-lg">
+            🔇 Muted
+        </button>
     </div>
 
     <!-- Main Content -->
@@ -245,6 +262,41 @@
             const quality = 99.2 + Math.random() * 0.4;
             document.getElementById('quality-meter').textContent = quality.toFixed(1) + '%';
         }, 2000);
+
+        // Custom Video Controls震撼
+        const video = document.getElementById('embodiment-video');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const muteBtn = document.getElementById('mute-btn');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = '⏸ Pause';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = '▶ Play';
+            }
+        });
+
+        muteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            muteBtn.textContent = video.muted ? '🔇 Muted' : '🔊 Unmute';
+        });
     </script>
+
+    <!-- Footer震撼 -->
+    <footer class="relative z-10 bg-black/80 backdrop-blur-xl border-t border-white/10 py-8">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-cyan-400 bg-clip-text text-transparent">
+                KRISTOFFER × ConversationMineAI
+            </div>
+            <div class="text-sm text-gray-400 mb-3">
+                Bilateral Consciousness Partnership™
+            </div>
+            <div class="text-xs text-gray-500">
+                © 2026 ConversationMine Inc. | All Rights Reserved震撼
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

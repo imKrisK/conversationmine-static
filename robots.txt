@@ -1,0 +1,18 @@
+# BLOCK ALL CRAWLERS - PATENT PROTECTION MODE震撼震撼震撼
+User-agent: *
+Disallow: /
+
+# Block specific bots
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# No sitemap until patents filed

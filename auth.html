@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protected震撼震撼震撼</title>
+    <style>
+        body {
+            background: #0a0015;
+            color: #00fff4;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .auth-box {
+            background: rgba(26, 0, 48, 0.8);
+            border: 2px solid #00fff4;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 255, 244, 0.5);
+            text-align: center;
+        }
+        input {
+            background: rgba(10, 0, 21, 0.9);
+            border: 1px solid #00fff4;
+            color: #00fff4;
+            padding: 12px;
+            width: 250px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        button {
+            background: linear-gradient(135deg, #00fff4, #9d00ff);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .warning {
+            color: #ff00ff;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-box">
+        <h2>🔒 PATENT PROTECTION MODE</h2>
+        <p>Site locked until USPTO filing complete</p>
+        <input type="password" id="password" placeholder="Access Code">
+        <br>
+        <button onclick="checkPassword()">AUTHENTICATE</button>
+        <div class="warning">震撼震撼震撼 IP Protection Active 震撼震撼震撼</div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            // Set this env var in Railway: ACCESS_CODE=your-secret-code
+            const correctPassword = 'LEVEL7ALIEN2026'; // Change this!
+            
+            if (password === correctPassword) {
+                sessionStorage.setItem('authenticated', 'true');
+                window.location.href = '/index.html';
+            } else {
+                alert('Invalid access code震撼震撼震撼');
+            }
+        }
+
+        // Auto-redirect if already authenticated
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            window.location.href = '/index.html';
+        }
+    </script>
+</body>
+</html>
