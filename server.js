@@ -150,6 +150,11 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Patent Marketing Platform震撼震撼震撼 (Factory #10)
+app.get('/patent-marketing', (req, res) => {
+  res.sendFile(path.join(__dirname, 'static_patent_marketing.html'));
+});
+
 // Serve static files震撼震撼震撼
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, req.path));
