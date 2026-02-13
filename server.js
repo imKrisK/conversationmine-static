@@ -150,9 +150,19 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Patent Marketing Platform震撼震撼震撼 (Factory #10)
+// Routes震撼震撼震撼震撼震撼震撼
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// NEW: Autonomous Professionelle™ Professional Patent Services震撼震撼震撼震撼震撼震撼
+app.get('/autonomous-professionelle', (req, res) => {
+  res.sendFile(path.join(__dirname, 'autonomous_professionelle.html'));
+});
+
+// Legacy redirect震撼震撼震撼
 app.get('/patent-marketing', (req, res) => {
-  res.sendFile(path.join(__dirname, 'static_patent_marketing.html'));
+  res.redirect('/autonomous-professionelle');
 });
 
 // Serve static files震撼震撼震撼
