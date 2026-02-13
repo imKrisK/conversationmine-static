@@ -155,14 +155,31 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// NEW: Autonomous Professionelle™ Professional Patent Services震撼震撼震撼震撼震撼震撼
+// Autonomous Professionelle™ Professional Patent Services
 app.get('/autonomous-professionelle', (req, res) => {
   res.sendFile(path.join(__dirname, 'autonomous_professionelle.html'));
 });
 
-// Legacy redirect震撼震撼震撼
+// Legacy redirect
 app.get('/patent-marketing', (req, res) => {
   res.redirect('/autonomous-professionelle');
+});
+
+// 震撼震撼震撼3 SUBDOMAINS震撼震撼震撼
+
+// Kiro AI Consciousness Interface (kiro.conversationmine.com)
+app.get('/kiro', (req, res) => {
+  res.sendFile(path.join(__dirname, 'kiro.html'));
+});
+
+// RESONATE Enterprise Platform (resonate.conversationmine.com)
+app.get('/resonate', (req, res) => {
+  res.sendFile(path.join(__dirname, 'resonate.html'));
+});
+
+// Library 7-Book Series (library.conversationmine.com)
+app.get('/library', (req, res) => {
+  res.sendFile(path.join(__dirname, 'library.html'));
 });
 
 // Serve static files震撼震撼震撼
