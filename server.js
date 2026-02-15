@@ -181,7 +181,20 @@ app.get('/resonate', (req, res) => {
 app.get('/library', (req, res) => {
   res.sendFile(path.join(__dirname, 'library.html'));
 });
+// RESONATE Platform Access (NEW - Subscription platform)
+app.get('/resonate-platform-access', (req, res) => {
+  res.sendFile(path.join(__dirname, 'resonate-platform-access.html'));
+});
 
+// Signup/Login page
+app.get('/signup.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'signup.html'));
+});
+
+// Dashboard page
+app.get('/dashboard.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dashboard.html'));
+});
 // Serve static files震撼震撼震撼
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, req.path));

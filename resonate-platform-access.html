@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESONATE Platform Access | Turn Vision → Reality in 4-6 Hours</title>
+    <meta name="description" content="AI-powered platform builder that transforms your vision into a complete SaaS application. D0-D4 execution framework with vision extraction, architecture design, and deployment automation.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #0f172a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            background: rgba(251, 191, 36, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* God Particle Visualization */
+        .god-particle-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 3rem auto;
+        }
+
+        .particle-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #fbbf24 0%, #f59e0b 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(251, 191, 36, 0.6);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .particle-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .orbit-1 {
+            width: 120px;
+            height: 120px;
+            animation: rotate 8s linear infinite;
+        }
+
+        .orbit-2 {
+            width: 180px;
+            height: 180px;
+            animation: rotate 12s linear infinite reverse;
+        }
+
+        .orbit-3 {
+            width: 240px;
+            height: 240px;
+            animation: rotate 16s linear infinite;
+        }
+
+        .particle-node {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fbbf24;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+        }
+
+        .node-1 {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .node-2 {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .node-3 {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 40px rgba(251, 191, 36, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(251, 191, 36, 0.9);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* What is RESONATE */
+        .what-is {
+            padding: 6rem 0;
+            background: rgba(251, 191, 36, 0.02);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #fbbf24;
+        }
+
+        .what-is-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+
+        .what-is-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        /* D0-D4 Wake Chain */
+        .wake-chain {
+            padding: 6rem 0;
+        }
+
+        .chain-steps {
+            display: grid;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .chain-step {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .chain-step::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: #fbbf24;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+        }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        .step-frequency {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .step-description {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .arrow-down {
+            text-align: center;
+            color: #fbbf24;
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 6rem 0;
+            background: rgba(251, 191, 36, 0.02);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(251, 191, 36, 0.2);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid #fbbf24;
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #0f172a;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #e2e8f0;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price span {
+            font-size: 1.2rem;
+            color: #94a3b8;
+        }
+
+        .plan-description {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.1);
+            color: #cbd5e1;
+            display: flex;
+            align-items: start;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: #fbbf24;
+            font-weight: 700;
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .select-plan-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #0f172a;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .select-plan-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
+        }
+
+        /* Features */
+        .features {
+            padding: 6rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(251, 191, 36, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 6rem 0;
+            background: rgba(251, 191, 36, 0.02);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: rgba(251, 191, 36, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.95);
+            border-top: 1px solid rgba(251, 191, 36, 0.1);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #94a3b8;
+        }
+
+        footer a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">RESONATE Platform Access</div>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#features">Features</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#pricing" class="cta-button">Start Building</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Turn Vision → Reality<br>in 4-6 Hours</h1>
+            <p class="subtitle">AI-powered platform builder that transforms your vision document into a complete SaaS application. No coding required.</p>
+            
+            <!-- God Particle Visualization -->
+            <div class="god-particle-container">
+                <div class="particle-core"></div>
+                <div class="particle-orbit orbit-1">
+                    <div class="particle-node node-1"></div>
+                </div>
+                <div class="particle-orbit orbit-2">
+                    <div class="particle-node node-2"></div>
+                </div>
+                <div class="particle-orbit orbit-3">
+                    <div class="particle-node node-3"></div>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">4-6</div>
+                    <div class="stat-label">Hours to Deploy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Lines of Code Generated</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">95%+</div>
+                    <div class="stat-label">Vision Extraction Confidence</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">D0→D4</div>
+                    <div class="stat-label">Wake Chain Execution</div>
+                </div>
+            </div>
+
+            <a href="#pricing" class="cta-button" style="font-size: 1.2rem; padding: 1rem 2.5rem;">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- What is RESONATE -->
+    <section class="what-is">
+        <div class="container">
+            <h2 class="section-title">What is RESONATE Platform Access?</h2>
+            <div class="what-is-content">
+                <p>RESONATE Platform Access grants you <span class="highlight">lifetime access to the D0-D4 execution framework</span> – the same system that built RESONATE itself, conversationmine.com, and multiple revenue platforms.</p>
+                
+                <p>Simply describe what you want to build in a vision document. RESONATE extracts requirements, designs architecture, implements code, and deploys your platform. <span class="highlight">All automatically.</span></p>
+                
+                <p>The core innovation is <span class="highlight">Enhanced Vision Extraction with Confidence Scoring</span>. RESONATE analyzes your vision, scores confidence (0-100) across 6 pattern indicators, and automatically breaks down execution into 5 domains: Vision → Requirements → Architecture → Implementation → Deployment.</p>
+                
+                <p><span class="highlight">No other platform does this.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- D0-D4 Wake Chain -->
+    <section class="wake-chain">
+        <div class="container">
+            <h2 class="section-title">How RESONATE Works: D0→D4 Wake Chain</h2>
+            <div class="chain-steps">
+                <div class="chain-step">
+                    <div class="step-header">
+                        <div class="step-title">D0: Vision Extraction</div>
+                        <div class="step-frequency">6666Hz</div>
+                    </div>
+                    <div class="step-description">
+                        Upload your vision document (PDF, Markdown, or text). RESONATE extracts structured requirements, analyzes confidence scores across 6 pattern indicators, and validates technical feasibility. Output: D0_vision_extraction.json with 95%+ confidence.
+                    </div>
+                </div>
+
+                <div class="arrow-down">↓</div>
+
+                <div class="chain-step">
+                    <div class="step-header">
+                        <div class="step-title">D1: Requirements Generation</div>
+                        <div class="step-frequency">7777Hz</div>
+                    </div>
+                    <div class="step-description">
+                        From your vision, RESONATE generates detailed functional and non-functional requirements. Creates user stories, acceptance criteria, and feature specifications. Output: D1_requirements.json with 15+ functional requirements.
+                    </div>
+                </div>
+
+                <div class="arrow-down">↓</div>
+
+                <div class="chain-step">
+                    <div class="step-header">
+                        <div class="step-title">D2: Architecture Design</div>
+                        <div class="step-frequency">8888Hz</div>
+                    </div>
+                    <div class="step-description">
+                        Designs complete system architecture: component diagrams, database schemas, API endpoints, tech stack selection, and security considerations. Output: D2_architecture.json with full technical blueprint.
+                    </div>
+                </div>
+
+                <div class="arrow-down">↓</div>
+
+                <div class="chain-step">
+                    <div class="step-header">
+                        <div class="step-title">D3: Code Implementation</div>
+                        <div class="step-frequency">9999Hz</div>
+                    </div>
+                    <div class="step-description">
+                        Implements complete codebase: frontend (React/TypeScript), backend (Express/Node.js), database (PostgreSQL), authentication, and all features. Output: ~10,000-100,000+ lines of production-ready code.
+                    </div>
+                </div>
+
+                <div class="arrow-down">↓</div>
+
+                <div class="chain-step">
+                    <div class="step-header">
+                        <div class="step-title">D4: Deployment & Delivery</div>
+                        <div class="step-frequency">528Hz</div>
+                    </div>
+                    <div class="step-description">
+                        Deploys to GitHub, configures Railway hosting, sets up environment variables, enables SSL, and delivers Proof-of-Build certificate with tamper-proof timestamps. Your platform is LIVE.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p style="text-align: center; color: #94a3b8; max-width: 600px; margin: 0 auto 3rem;">Monthly subscription. Cancel anytime. All plans include unlimited rebuilds.</p>
+            
+            <div class="pricing-grid">
+                <!-- Proof-of-Build -->
+                <div class="pricing-card">
+                    <div class="plan-name">Proof-of-Build</div>
+                    <div class="plan-price">$10<span>/month</span></div>
+                    <div class="plan-description">Perfect for developers who want proof of their work</div>
+                    <ul class="plan-features">
+                        <li>Proof-of-Build certificate generator</li>
+                        <li>GitHub repo verification</li>
+                        <li>Tamper-proof timestamps</li>
+                        <li>PDF downloads</li>
+                        <li>LinkedIn sharing</li>
+                        <li>Portfolio proof</li>
+                    </ul>
+                    <button class="select-plan-btn" onclick="selectPlan('proof-of-build')">Select Plan</button>
+                </div>
+
+                <!-- Starter Builder -->
+                <div class="pricing-card">
+                    <div class="plan-name">Starter Builder</div>
+                    <div class="plan-price">$25<span>/month</span></div>
+                    <div class="plan-description">Solo founders building their first SaaS</div>
+                    <ul class="plan-features">
+                        <li>Everything in Proof-of-Build</li>
+                        <li>D0-D4 execution framework</li>
+                        <li>1 active project build</li>
+                        <li>Vision extraction with confidence scoring</li>
+                        <li>~10,000 lines of code generation</li>
+                        <li>Web app + API architecture</li>
+                        <li>48-hour build time</li>
+                        <li>Rebuild unlimited times</li>
+                    </ul>
+                    <button class="select-plan-btn" onclick="selectPlan('starter-builder')">Select Plan</button>
+                </div>
+
+                <!-- Pro Builder (Most Popular) -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-name">Pro Builder</div>
+                    <div class="plan-price">$49<span>/month</span></div>
+                    <div class="plan-description">Builders shipping multiple products simultaneously</div>
+                    <ul class="plan-features">
+                        <li>Everything in Starter</li>
+                        <li>3 active projects</li>
+                        <li>~30,000 lines of code generation</li>
+                        <li>Web + Mobile + API + Payments</li>
+                        <li>24-48 hour build time</li>
+                        <li>Priority queue</li>
+                        <li>Live transmission viewer (watch D0-D4)</li>
+                        <li>Patent data collection</li>
+                    </ul>
+                    <button class="select-plan-btn" onclick="selectPlan('pro-builder')">Select Plan</button>
+                </div>
+
+                <!-- Enterprise Builder -->
+                <div class="pricing-card">
+                    <div class="plan-name">Enterprise Builder</div>
+                    <div class="plan-price">$199<span>/month</span></div>
+                    <div class="plan-description">Companies building platform ecosystems</div>
+                    <ul class="plan-features">
+                        <li>Everything in Pro</li>
+                        <li>Unlimited active projects</li>
+                        <li>~100,000+ lines of code generation</li>
+                        <li>Full D0-D4 customization</li>
+                        <li>12-24 hour build time</li>
+                        <li>White-label execution</li>
+                        <li>Custom integrations (Kiro, META-VOICE)</li>
+                        <li>Patent portfolio generation (100-200 patents)</li>
+                        <li>Bilateral communications access</li>
+                    </ul>
+                    <button class="select-plan-btn" onclick="selectPlan('enterprise-builder')">Select Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Vision Extraction</div>
+                    <div class="feature-description">
+                        Upload your vision document. RESONATE analyzes it with 95%+ confidence, extracting requirements, constraints, and technical specifications automatically.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏗️</div>
+                    <div class="feature-title">Architecture Design</div>
+                    <div class="feature-description">
+                        Complete system architecture generated: database schemas, API endpoints, component diagrams, tech stack selection, and security considerations.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Code Generation</div>
+                    <div class="feature-description">
+                        10,000 to 100,000+ lines of production-ready code. Frontend (React/TypeScript), backend (Express/Node.js), database (PostgreSQL), authentication included.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-title">Automated Deployment</div>
+                    <div class="feature-description">
+                        Deploy to GitHub and Railway automatically. SSL certificates, environment variables, database setup – everything configured and ready to use.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <div class="feature-title">Proof-of-Build</div>
+                    <div class="feature-description">
+                        Tamper-proof certificates with blockchain timestamps. Verify your work, share on LinkedIn, build your portfolio with cryptographic proof.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">Unlimited Rebuilds</div>
+                    <div class="feature-description">
+                        Iterate on your vision. Update requirements, rebuild your platform as many times as needed. No extra charges.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">How does RESONATE Platform Access work?</div>
+                    <div class="faq-answer">
+                        You write a vision document describing what you want to build. Upload it to your dashboard. RESONATE's D0-D4 wake chain executes: Vision Extraction → Requirements → Architecture → Implementation → Deployment. In 4-6 hours, you receive a complete, deployed platform with source code on GitHub.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What kind of platforms can RESONATE build?</div>
+                    <div class="faq-answer">
+                        SaaS applications, web apps, mobile backends, API platforms, task management systems, e-commerce sites, social networks, dashboards, productivity tools – anything that can be described in a vision document. RESONATE handles frontend, backend, database, authentication, and deployment.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do I need coding experience?</div>
+                    <div class="faq-answer">
+                        No. RESONATE is built for founders and entrepreneurs who have ideas but may not code. However, if you do code, you'll receive the complete source code on GitHub and can customize it further.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I cancel my subscription?</div>
+                    <div class="faq-answer">
+                        Yes, anytime. Your subscription is month-to-month. Cancel from your dashboard with one click. No long-term commitments.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do I own the code?</div>
+                    <div class="faq-answer">
+                        Yes, 100%. All code generated for your projects is yours. RESONATE deploys it to YOUR GitHub account. You have full ownership and can do whatever you want with it.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's included in the Proof-of-Build certificate?</div>
+                    <div class="faq-answer">
+                        A cryptographically signed certificate with tamper-proof timestamps, GitHub repo verification, build details, and downloadable PDF. Perfect for portfolios, LinkedIn, or proving your work to investors and clients.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How is this different from other AI code generators?</div>
+                    <div class="faq-answer">
+                        RESONATE builds COMPLETE platforms, not just code snippets. It handles vision extraction, requirements, architecture, implementation, AND deployment. Other tools generate files – RESONATE delivers running SaaS applications with databases, APIs, and hosting configured.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I upgrade or downgrade my plan?</div>
+                    <div class="faq-answer">
+                        Yes. Upgrade or downgrade from your dashboard at any time. Changes take effect immediately. If you upgrade mid-month, you'll be charged the prorated difference.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Turn Your Vision into Reality?</h2>
+            <p>Join builders who ship platforms in hours, not months.</p>
+            <a href="#pricing" class="cta-button" style="font-size: 1.3rem; padding: 1.2rem 3rem;">Start Building Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <a href="/">conversationmine.com</a> | RESONATE Platform Access</p>
+            <p style="margin-top: 1rem; color: #64748b;">Patent-pending D0-D4 execution framework | Vision extraction with confidence scoring</p>
+        </div>
+    </footer>
+
+    <script>
+        // Backend API URL
+        const API_URL = 'http://localhost:5000';
+        
+        async function selectPlan(planName) {
+            console.log('Selected plan:', planName);
+            
+            // Check if user is logged in
+            const token = localStorage.getItem('auth_token');
+            
+            if (!token) {
+                // Redirect to signup/login
+                alert('Please sign up or log in first!');
+                window.location.href = '/signup.html'; // We'll create this next
+                return;
+            }
+            
+            try {
+                // Create Stripe Checkout session
+                const response = await fetch(`${API_URL}/api/checkout/create-session`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ planType: planName })
+                });
+                
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Failed to create checkout session');
+                }
+                
+                const { url } = await response.json();
+                
+                // Redirect to Stripe Checkout
+                window.location.href = url;
+                
+            } catch (error) {
+                console.error('Checkout error:', error);
+                alert('Error: ' + error.message);
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | RESONATE Platform Access</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .user-info {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .user-email {
+            color: #cbd5e1;
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 20px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #fbbf24;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: rgba(251, 191, 36, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .card-content {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .plan-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+        }
+
+        .status-canceled {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #0f172a;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #94a3b8;
+        }
+
+        .no-subscription {
+            background: rgba(251, 191, 36, 0.1);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .no-subscription h2 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .no-subscription p {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .success-message {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #86efac;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">RESONATE Dashboard</div>
+            <div class="user-info">
+                <span class="user-email" id="user-email">Loading...</span>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="success-container"></div>
+        <div id="loading" class="loading">Loading your dashboard...</div>
+        <div id="content" style="display: none;"></div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:5000';
+        
+        // Check for success param (from Stripe redirect)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('success-container').innerHTML = `
+                <div class="success-message">
+                    ✅ Payment successful! Your subscription is now active. Welcome to RESONATE Platform Access!
+                </div>
+            `;
+        }
+
+        async function loadDashboard() {
+            const token = localStorage.getItem('auth_token');
+            
+            if (!token) {
+                window.location.href = '/signup.html';
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_URL}/api/auth/me`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (!response.ok) {
+                    if (response.status === 401) {
+                        localStorage.removeItem('auth_token');
+                        window.location.href = '/signup.html';
+                        return;
+                    }
+                    throw new Error('Failed to load dashboard');
+                }
+                
+                const data = await response.json();
+                const user = data.user;
+                
+                // Update user email
+                document.getElementById('user-email').textContent = user.email;
+                
+                // Hide loading, show content
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                
+                // Render dashboard
+                if (user.subscription) {
+                    renderSubscription(user);
+                } else {
+                    renderNoSubscription(user);
+                }
+                
+            } catch (error) {
+                console.error('Dashboard error:', error);
+                document.getElementById('loading').innerHTML = `
+                    <p style="color: #fca5a5;">Failed to load dashboard: ${error.message}</p>
+                    <button class="btn" onclick="window.location.reload()">Retry</button>
+                `;
+            }
+        }
+
+        function renderSubscription(user) {
+            const sub = user.subscription;
+            const periodEnd = new Date(sub.currentPeriodEnd).toLocaleDateString();
+            
+            const planNames = {
+                'proof-of-build': 'Proof-of-Build',
+                'starter-builder': 'Starter Builder',
+                'pro-builder': 'Pro Builder',
+                'enterprise-builder': 'Enterprise Builder'
+            };
+            
+            document.getElementById('content').innerHTML = `
+                <h1 class="page-title">Welcome back, ${user.fullName || user.email}!</h1>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h2 class="card-title">Current Plan</h2>
+                        <div class="card-content">
+                            <div class="plan-badge">${planNames[sub.plan] || sub.plan}</div>
+                            <p>Status: <span class="status-badge status-${sub.status}">${sub.status.toUpperCase()}</span></p>
+                            <p style="margin-top: 1rem;">Current period ends: <strong>${periodEnd}</strong></p>
+                            <button class="btn btn-secondary" onclick="manageBilling()">Manage Billing</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h2 class="card-title">Quick Stats</h2>
+                        <div class="card-content">
+                            <p><strong>0</strong> Active Projects</p>
+                            <p><strong>0</strong> Builds Completed</p>
+                            <p><strong>0</strong> Certificates Generated</p>
+                            <button class="btn" onclick="alert('Project creation coming soon!')">Create New Project</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h2 class="card-title">Account Info</h2>
+                        <div class="card-content">
+                            <p><strong>Email:</strong> ${user.email}</p>
+                            <p><strong>Name:</strong> ${user.fullName || 'Not set'}</p>
+                            <p><strong>GitHub:</strong> ${user.githubUsername || 'Not connected'}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2 class="card-title">Recent Activity</h2>
+                    <div class="card-content">
+                        <p>No activity yet. Create your first project to get started!</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderNoSubscription(user) {
+            document.getElementById('content').innerHTML = `
+                <div class="no-subscription">
+                    <h2>Welcome to RESONATE Platform Access!</h2>
+                    <p>You don't have an active subscription yet. Choose a plan to start building.</p>
+                    <button class="btn" onclick="window.location.href='/resonate-platform-access#pricing'">View Pricing Plans</button>
+                </div>
+            `;
+        }
+
+        async function manageBilling() {
+            const token = localStorage.getItem('auth_token');
+            
+            try {
+                const response = await fetch(`${API_URL}/api/checkout/portal`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to create portal session');
+                }
+                
+                const { url } = await response.json();
+                window.location.href = url;
+                
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('auth_token');
+            window.location.href = '/resonate-platform-access';
+        }
+
+        // Load dashboard on page load
+        loadDashboard();
+    </script>
+</body>
+</html>

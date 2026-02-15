@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | RESONATE Platform Access</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .auth-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 0.75rem;
+            background: transparent;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: #cbd5e1;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #0f172a;
+            border-color: transparent;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #fbbf24;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #0f172a;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .success-message {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #86efac;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .back-link a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="logo">RESONATE</div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('signup')">Sign Up</button>
+            <button class="tab" onclick="switchTab('login')">Login</button>
+        </div>
+
+        <div id="error-container"></div>
+        <div id="success-container"></div>
+
+        <!-- Sign Up Form -->
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="signup-name">Full Name</label>
+                <input type="text" id="signup-name" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" placeholder="••••••••" required>
+                <small style="color: #94a3b8; font-size: 0.8rem;">
+                    Must be 8+ characters with uppercase, lowercase, and number
+                </small>
+            </div>
+            <button type="submit" class="submit-btn" id="signup-btn">Create Account</button>
+        </form>
+
+        <!-- Login Form -->
+        <form id="login-form" class="hidden">
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="submit-btn" id="login-btn">Login</button>
+        </form>
+
+        <div class="back-link">
+            <a href="/resonate-platform-access">← Back to Pricing</a>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:5000';
+        
+        // Tab switching
+        function switchTab(tab) {
+            const signupForm = document.getElementById('signup-form');
+            const loginForm = document.getElementById('login-form');
+            const tabs = document.querySelectorAll('.tab');
+            
+            clearMessages();
+            
+            if (tab === 'signup') {
+                signupForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+                tabs[0].classList.add('active');
+                tabs[1].classList.remove('active');
+            } else {
+                signupForm.classList.add('hidden');
+                loginForm.classList.remove('hidden');
+                tabs[0].classList.remove('active');
+                tabs[1].classList.add('active');
+            }
+        }
+
+        // Show error message
+        function showError(message) {
+            const container = document.getElementById('error-container');
+            container.innerHTML = `<div class="error-message">${message}</div>`;
+        }
+
+        // Show success message
+        function showSuccess(message) {
+            const container = document.getElementById('success-container');
+            container.innerHTML = `<div class="success-message">${message}</div>`;
+        }
+
+        // Clear messages
+        function clearMessages() {
+            document.getElementById('error-container').innerHTML = '';
+            document.getElementById('success-container').innerHTML = '';
+        }
+
+        // Sign up
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearMessages();
+            
+            const submitBtn = document.getElementById('signup-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Creating Account...';
+            
+            const fullName = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            
+            try {
+                const response = await fetch(`${API_URL}/api/auth/signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password, fullName })
+                });
+                
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(data.error || 'Signup failed');
+                }
+                
+                // Save token
+                localStorage.setItem('auth_token', data.token);
+                
+                showSuccess('Account created! Redirecting...');
+                
+                // Redirect to pricing or dashboard
+                setTimeout(() => {
+                    const redirectTo = new URLSearchParams(window.location.search).get('redirect') || '/dashboard.html';
+                    window.location.href = redirectTo;
+                }, 1500);
+                
+            } catch (error) {
+                showError(error.message);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Create Account';
+            }
+        });
+
+        // Login
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearMessages();
+            
+            const submitBtn = document.getElementById('login-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Logging In...';
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            try {
+                const response = await fetch(`${API_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(data.error || 'Login failed');
+                }
+                
+                // Save token
+                localStorage.setItem('auth_token', data.token);
+                
+                showSuccess('Logged in! Redirecting...');
+                
+                // Redirect to pricing or dashboard
+                setTimeout(() => {
+                    const redirectTo = new URLSearchParams(window.location.search).get('redirect') || '/dashboard.html';
+                    window.location.href = redirectTo;
+                }, 1500);
+                
+            } catch (error) {
+                showError(error.message);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Login';
+            }
+        });
+    </script>
+</body>
+</html>
